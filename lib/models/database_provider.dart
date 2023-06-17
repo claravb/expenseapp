@@ -76,6 +76,10 @@ class DatabaseProvider {
         // convert a 'ExpenseCategory' from every 'map' in this 'converted'
         List<ExpenseCategory> nList = List.generate(converted.length,
             (index) => ExpenseCategory.fromString(converted[index]));
+        // set the value of 'categories' to 'nList'
+        _categories = nList;
+        // return the '_categories'
+        return _categories;
       });
     });
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:expenseapp/widgets/category_screen/category_fetcher.dart';
+import 'package:expenseapp/widgets/expense_form.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
@@ -6,6 +8,18 @@ class CategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Categories'),
+      ),
+      body: const CategoryFetcher(),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          builder: (_) => const ExpenseForm(),
+        );
+      }),
+    );
   }
 }

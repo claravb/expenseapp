@@ -1,9 +1,16 @@
+import 'package:expenseapp/screens/expense_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:expenseapp/models/database_provider.dart';
+
 //screens
 import 'package:expenseapp/screens/category_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (_) => DatabaseProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +21,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: CategoryScreen.name,
-      routes: {CategoryScreen.name: (_) => const CategoryScreen()},
+      routes: {
+        CategoryScreen.name: (_) => const CategoryScreen(),
+        ExpenseScreen.name: (_) => const ExpenseScreen(),
+      },
     );
   }
 }

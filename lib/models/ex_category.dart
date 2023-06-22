@@ -34,7 +34,7 @@ class ExpenseCategory {
   factory ExpenseCategory.fromString(Map<String, dynamic> value) => ExpenseCategory(
       title: value['title'],
       entries: value['entries'],
-      totalAmount: value['totalAmount'],
+      totalAmount: double.parse(value['totalAmount']),
       icon: icons[value[
           'title']]!); // it will search the icons map and find the value related to the title.
 }
